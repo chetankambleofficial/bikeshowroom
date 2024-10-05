@@ -1,0 +1,37 @@
+.car_details{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    background-color: rgba(59, 59, 59, 0.742);
+   padding: 20px;
+   border-radius: 20px;
+    text-align: center;
+  }
+ .lin{
+  z-index: 3;
+  background: linear-gradient(black,green);
+ }
+  .tag_line{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    --tw-text-opacity: 1;
+    color: white;
+  }
+  .model_name{
+    font-size: 4rem;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: white;
+  }
+  .navbar{
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    display: flex;
+    height: 5.4rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.2rem;
+    background-color: rgba(0, 0, 0, 0.673);
+  }

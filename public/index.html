@@ -1,0 +1,240 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honda Bike Showroom</title>
+  <link rel="stylesheet" href="./tailwind.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/x-icon" href="./images/Honda_Logo.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js" defer></script>
+  
+  <style>
+    .dropdown-menu {
+      display: none;
+    }
+    .dropdown-menu.show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-800">
+  <header class="navbar flex justify-between  text-gray-50  flex  items-center justify-between  p-10">
+
+      <div style="display: flex; align-items: center;"> 
+     <img src=".\images\honda.png" height="40" width="40">
+     <h1 style="font-weight: 700; font-size: 20px; color: rgb(156, 156, 156);"><span style="color: rgb(173, 103, 103);">Honda</span> Bikes</h1>
+    </div>
+      <div class="hidden lg:flex font-bold space-x-20">
+        <a href="#bike1" class=" dark:text-white hover:underline">CB400</a>
+        <a href="#bike2" class=" dark:text-white hover:underline">CBR1000</a>
+        <a href="#bike3" class=" dark:text-white hover:underline">CBR 1000RR</a>
+        <a href="#bike4" class=" dark:text-white hover:underline">CBR1000RR 24EDITION</a>
+        <a href="#bike5" class=" dark:text-white hover:underline">CBR600RR</a>
+        <a href="#bike6" class=" dark:text-white hover:underline">CB UNICORN150</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button @click="open = !open" class="lg:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>
+      
+      <!-- Dropdown Menu -->
+      <div x-data="{ open: false, dropdownOpen: false, nestedDropdownOpen: false }" :class="{ 'hidden': !open }" class="w-full lg:w-auto lg:flex lg:items-center">
+        <ul class="flex flex-col lg:flex-row font-medium p-4 lg:p-5 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700">
+          
+          <!-- Dropdown -->
+          <li class="relative">
+            <button @click="dropdownOpen = !dropdownOpen" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-white lg:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 lg:dark:hover:bg-transparent">
+              Menu
+              <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div :class="{ 'show': dropdownOpen }" class="dropdown-menu absolute z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                  <button @click="nestedDropdownOpen = !nestedDropdownOpen" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown
+                    <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                  </button>
+                  <div :class="{ 'show': nestedDropdownOpen }" class="dropdown-menu absolute left-full top-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                      <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Overview</a>
+                      </li>
+                      <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My downloads</a>
+                      </li>
+                      <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Billing</a>
+                      </li>
+                      <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Rewards</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                </li>
+              </ul>
+              <div class="py-1">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+              </div>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+   
+  </header>
+
+  <!-- Model S Section Start -->
+  <section id="bike1" class="car_section">
+    <div class="lin">
+    <img src="./images/bike2.jpg" alt="Model S Image" class="car_img">
+    <h1 style="color: antiquewhite;">Honda bikes</h1>
+  </div>
+    <div class='car_details transform_50'>
+      <h1 class="model_name">Honda CB400</h1>
+      <h2 class="tag_line">Order Online for <span class="underline cursor-pointer">Touchless Delivery</span></h2>
+    </div>
+
+    <div class="car_buttons transform_50">
+      <button class="btn">Custom Order</button>
+      <button class="btn inventory">Existing Inventory</button>
+    </div>
+
+    <a href="#bike2">
+      <svg class="down_svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="var(--tds-icon--fill, #171a20)" stroke-width="1.5" d="m19.5 12.5-4.5 4-4.5-4" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </section>
+  <!-- Model S Section End -->
+
+  <!-- Model 3 Section Start -->
+  <section id="bike2" class="car_section">
+    <img src="./images/bike1.jpg" alt="Model 3 Image" class="car_img lin">
+
+    <div class='car_details transform_50'>
+      <h1 class="model_name">Honda CBR 1000</h1>
+      <h2 class="tag_line">Order Online for <span class="underline cursor-pointer">Touchless Delivery</span></h2>
+    </div>
+
+    <div class="car_buttons transform_50">
+      <button class="btn">Custom Order</button>
+      <button class="btn inventory">Existing Inventory</button>
+    </div>
+
+    <a href="#bike3">
+      <svg class="down_svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="var(--tds-icon--fill, #171a20)" stroke-width="1.5" d="m19.5 12.5-4.5 4-4.5-4" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </section>
+  <!-- Model 3 Section End -->
+
+  <!-- Model X Section Start -->
+  <section id="bike3" class="car_section">
+    <img src="./images/bike3.jpg" alt="bike3 Image" class="car_img">
+
+    <div class='car_details transform_50'>
+      <h1 class="model_name">Honda CBR 1000 RR </h1>
+      <h2 class="tag_line">Order Online for <span class="underline cursor-pointer">Touchless Delivery</span></h2>
+    </div>
+
+    <div class="car_buttons transform_50">
+      <button class="btn">Custom Order</button>
+      <button class="btn inventory">Existing Inventory</button>
+    </div>
+
+    <a href="#bike4">
+      <svg class="down_svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="var(--tds-icon--fill, #171a20)" stroke-width="1.5" d="m19.5 12.5-4.5 4-4.5-4" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </section>
+  <!-- Model X Section End -->
+
+  <!-- Model Y Section Start -->
+  <section id="bike4" class="car_section">
+    <img src="./images/bike4.jpg" alt="Model Y Image" class="car_img">
+
+    <div class='car_details transform_50'>
+      <h1 class="model_name">Honda CBR 1000 RR 2024 Edition</h1>
+      <h2 class="tag_line">Order Online for <span class="underline cursor-pointer">Touchless Delivery</span></h2>
+    </div>
+
+    <div class="car_buttons transform_50">
+      <button class="btn">Custom Order</button>
+      <button class="btn inventory">Existing Inventory</button>
+    </div>
+
+    <a href="#bike5">
+      <svg class="down_svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="var(--tds-icon--fill, #171a20)" stroke-width="1.5" d="m19.5 12.5-4.5 4-4.5-4" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </section>
+  <!-- Model Y Section End -->
+
+  <!-- Solar Roof Section Start -->
+  <section id="bike5" class="car_section">
+    <img src="./images/bike5.jpg" alt="Solar Roof Image" class="car_img">
+
+    <div class='car_details transform_50'>
+      <h1 class="model_name">Honda CBR 600 RR</h1>
+      <h2 class="tag_line">Order Online for <span class="underline cursor-pointer">Touchless Delivery</span></h2>
+    </div>
+
+    <div class="car_buttons transform_50">
+      <button class="btn">Custom Order</button>
+      <button class="btn inventory">Existing Inventory</button>
+    </div>
+
+    <a href="#bike6">
+      <svg class="down_svg" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <path stroke="var(--tds-icon--fill, #171a20)" stroke-width="1.5" d="m19.5 12.5-4.5 4-4.5-4" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </section>
+  <!-- Solar Roof Section End -->
+
+  <!-- Solar Panels Section Start -->
+  <section id="bike6" class="car_section">
+    <img src="./images/bike6.jpg" alt="Solar Panels Image" class="car_img">
+
+    <div class='car_details transform_50'>
+      <h1 class="model_name">Honda CB Unicorn 150</h1>
+      <h2 class="tag_line">Order Online for <span class="underline cursor-pointer">Touchless Delivery</span></h2>
+    </div>
+
+    <div class="car_buttons transform_50">
+      <button class="btn">Custom Order</button>
+      <button class="btn inventory">Existing Inventory</button>
+    </div>
+
+  </section>
+  <!-- Solar Panels Section End -->
+
+</body>
+
+</html>
